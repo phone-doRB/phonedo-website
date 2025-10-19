@@ -1,8 +1,10 @@
 
+// vite.config.js
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
+  // Use relative URLs so GH Pages project sites work
   base: './',
   build: {
     rollupOptions: {
