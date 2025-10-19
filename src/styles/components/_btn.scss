@@ -1,0 +1,49 @@
+@use '../variables';
+
+$btn-colors: (
+        white: #FFFFFF,
+        green: #28a745,
+        red: #dc3545,
+        gray: #6c757d
+);
+
+.btn {
+  display: inline-flex;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  justify-content: center;
+  align-items: center;
+  grid-column-gap: 10px;
+
+  i {
+    line-height: 0;
+  }
+  &-group {
+    display: flex;
+    align-items: center;
+    grid-column-gap: 10px;
+  }
+  &--outline {
+    border: 1px solid variables.$light;
+    color: variables.$light;
+  }
+
+  &--primary {
+    color: #fff;
+    background: variables.$primaryColor;
+  }
+
+  &--light {
+    color: #1A1E37;
+    background: variables.$light;
+  }
+
+  &--dark {
+    color: #FFFFFF;
+    background: variables.$colorMain;
+  }
+
+}

@@ -1,0 +1,206 @@
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (max-width: 740px) {
+    @content;
+  }
+}
+
+@mixin neon-separator($color:#6A93FE, $degrees:90deg) {
+  height: 2px;
+  border-radius: 3px;
+  background: linear-gradient(
+                  $degrees,
+                  transparent 0%,
+                  $color 10%,
+                  $color 90%,
+                  transparent 100%
+  );
+  //box-shadow: 0 0 12px $color;
+}
+
+@mixin side-lines($color: #6A93FE, $degrees:90deg) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    width: 2px;
+    @include neon-separator($color, $degrees);
+  }
+}
+
+@mixin title-separator($color, $direction: 0deg) {
+  @include side-lines($color, $direction);
+
+  & > .circle-radar {
+    @include circle-radar($color);
+  }
+}
+
+@mixin radial-glow-right-corner-with-text(
+  $color:#6A93FE,
+  $text: false,
+  $text-size: 12vw,
+  $stroke-color: rgba(255, 255, 255, 0.05),
+  $stroke-width: 2px,
+) {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -280px;
+    width: 837px;
+    height: 637px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+    background: radial-gradient(
+                    circle at 68% 31%,
+                    rgba($color, 0.31) 0%,
+                    rgba($color, 0.27) 68%,
+                    rgba($color, 0) 100%
+    );
+  }
+  @if $text {
+    &::after {
+      content: $text;
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      transform: translateY(-50%);
+      font-weight: 700;
+      font-size: $text-size;
+      white-space: nowrap;
+      color: transparent;
+      -webkit-text-stroke: $stroke-width $stroke-color;
+      text-stroke: $stroke-width $stroke-color;
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+}
+
+@mixin circle-radar($base: #3A9CFC) {
+  $blurBase: rgba($base, 0.1);
+  $blurLast: rgba($base, 0.3);
+  display: flex;
+  place-content: center;
+  align-items: center;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  box-shadow: 7.21px 5.77px 17.3px -2.88px #00000014, 0px 4.32px 86.48px -4.32px #00000080;
+  background: linear-gradient(
+                  156deg,
+                  rgba($base, 0.1) 0%,
+                  rgba($base, 0) 100%
+  );
+
+  &:after {
+    content: "";
+    top: 9px;
+    left: 9px;
+    width: 72px;
+    height: 72px;
+    border-radius: 36px;
+    background: linear-gradient(
+                    156deg,
+                    rgba($base, 0.3) 0%,
+                    rgba($base, 0) 100%
+    );
+    position: absolute;
+    box-shadow: 7.21px 5.77px 17.3px -2.88px #00000014, 0px 4.32px 86.48px -4.32px #00000080;
+  }
+
+  &:before {
+    content: "";
+    top: 19px;
+    left: 18px;
+    width: 54px;
+    height: 53px;
+    border-radius: 26.86px / 26.75px;
+    background: linear-gradient(
+                    156deg,
+                    rgba($base, 1) 0%,
+                    rgba($base, 0) 100%
+    );
+    position: absolute;
+    z-index: -1;
+    box-shadow: 7.21px 5.77px 17.3px -2.88px #00000014, 0px 4.32px 86.48px -4.32px #00000080;
+  }
+}
+
+
+@mixin glow(
+  $color: #03FCFC,
+  $position: right,
+  $size: 800px
+) {
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: calc($size - (($size / 100) * 20));
+    height: $size;
+
+    background: radial-gradient(
+                    circle,
+                    rgba(red($color), green($color), blue($color), 1) 0%,
+                    rgba(red($color), green($color), blue($color), 0.15) 60%,
+                    rgba(red($color), green($color), blue($color), 0) 100%
+    );
+    filter: blur(190px);
+
+    @if $position == right {
+      top: 50%;
+      right: -$size / 3;
+      transform: translateY(-50%);
+    } @else if $position == left {
+      top: 50%;
+      left: -$size / 3;
+      transform: translateY(-50%);
+    } @else if $position == bottom {
+      bottom: -$size / 3;
+      left: 50%;
+      transform: translateX(-50%);
+    } @else if $position == top {
+      top: -$size / 3;
+      left: 50%;
+      transform: translateX(-50%);
+    } @else if $position == right-top {
+      top: -$size / 3;
+      right: -$size / 3;
+    } @else if $position == right-bottom {
+      bottom: -$size / 3;
+      right: -$size / 3;
+    } @else if $position == left-top {
+      top: -$size / 3;
+      left: -$size / 3;
+    } @else if $position == left-bottom {
+      bottom: -$size / 3;
+      left: -$size / 3;
+    }
+  }
+}

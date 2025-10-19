@@ -1,0 +1,7 @@
+
+services:
+  phonedo-landing:
+    build: .
+    ports:
+      - "5174:8080"
+    restart: unless-stopped

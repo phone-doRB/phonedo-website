@@ -1,0 +1,68 @@
+@use '../variables';
+@use '../mixins';
+
+.about-top {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 50px;
+  //@include mixins.radial-glow-right-corner-with-text(#6A93FE);
+  @include mixins.glow(#6A93FE)
+}
+.investors {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+
+  &__logo {
+    flex: 0 0 190px;
+  }
+}
+
+.leadership {
+  position: relative;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-gap: 3rem;
+  padding-inline: 10rem;
+  &-section{
+    position: relative;
+    //@include mixins.radial-glow-right-corner-with-text(#6A93FE);
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -280px;
+      width: 837px;
+      height: 637px;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      background: radial-gradient(
+                      circle at 68% 31%,
+                      rgba(variables.$primaryColor, 0.31) 0%,
+                      rgba(variables.$primaryColor, 0.27) 68%,
+                      rgba(variables.$primaryColor, 0) 100%
+      );
+    }
+  }
+  &__item {
+    background: linear-gradient(133.816deg, rgba(250, 250, 251, 15%) 0%, rgba(148, 148, 149, 0%) 100%);
+    border-radius: 20px;
+    flex: 0 0 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 260px;
+
+    .social-link {
+      color: variables.$primarySecond;
+      font-size: 22px;
+    }
+
+    img {
+      max-width: 198px;
+    }
+  }
+}

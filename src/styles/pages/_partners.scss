@@ -1,0 +1,38 @@
+@use '../mixins' as mixins;
+@use '../variables';
+
+.partners-top {
+  padding-top: 160px;
+  padding-bottom: 50px;
+  @include mixins.radial-glow-right-corner-with-text(variables.$darkPurple);
+
+  .glow-title {
+    right: -60%;
+  }
+}
+
+
+.partners-section {
+  background: linear-gradient(90deg, rgba(250, 250, 251, 15%) 0%, rgba(148, 148, 149, 0%) 100%);
+  position: relative;
+  border-radius: 16px;
+  overflow-x: hidden;
+  //border-left: 3px solid variables.$darkPurple;
+  padding: 35px;
+  margin-bottom: 25px;
+
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    background: variables.$darkPurple;
+    width: 4px;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .content-p {
+    max-width: 840px;
+  }
+}

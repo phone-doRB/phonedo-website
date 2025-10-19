@@ -1,0 +1,284 @@
+@use './variables';
+@use './mixins' as mixins;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  text-wrap: pretty;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Basic styling for the button */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", serif;
+  background-color: variables.$backgroundDark;
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+.h1 {
+  font-weight: 700;
+  font-size: 56px;
+  margin-bottom: 30px;
+  @include mixins.for-phone-only {
+    font-size: 40px;
+  }
+}
+
+.h2 {
+  font-weight: 700;
+  font-size: 46px;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  @include mixins.for-phone-only {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.h3 {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 10px;
+  letter-spacing: 0;
+  line-height: 30px;
+}
+
+.primary-text {
+  color: variables.$primaryColor;
+}
+
+.neon-text {
+  color: variables.$darkPurple;
+}
+
+.golden-text {
+  color: variables.$golden;
+}
+
+.success-text {
+  color: variables.$successColor;
+}
+
+.container {
+  max-width: calc(1440px + 30px);
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.content-p {
+  color: #FFFFFF;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.background-sphere {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: max(35vh, 280px);
+  max-height: 560px;
+  margin-bottom: 80px;
+  grid-gap: 30px;
+
+  &:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    content: '';
+    background-image: url('/images/sphere.png');
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .h2 {
+    text-align: center;
+    max-width: 580px;
+  }
+
+  &.reverse {
+    &:after {
+      transform: rotate(0deg);
+    }
+  }
+
+  @include mixins.for-phone-only {
+    padding-top: 60px;
+    .btn-group {
+      width: 80%;
+      align-items: stretch;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
+
+.radar-icon {
+  color: #FFFFFF;
+  font-size: 22px;
+  line-height: 22px;
+
+  i.fi {
+    fill: #FFFFFF;
+    font-weight: bold;
+  }
+}
+
+.page-top {
+  padding-top: 120px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+
+.page-title {
+  max-width: 580px;
+  margin-bottom: 8px;
+  line-height: 1;
+
+  & ~ .content-p {
+    margin-bottom: 0px;
+    max-width: 860px;
+  }
+}
+
+.page-subtitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.glow-title {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  font-size: max(12vw, 56px);
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
+  text-stroke: 2px rgba(255, 255, 255, 0.05);
+  z-index: 1;
+  pointer-events: none;
+  line-height: 0.8;
+}
+
+.with-separator {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+
+  &--light {
+    @include mixins.neon-separator(#FFFFFF);
+  }
+
+  &--primary {
+    @include mixins.neon-separator(variables.$primaryColor);
+  }
+
+  &--green {
+    @include mixins.neon-separator(variables.$successColor);
+  }
+}
+
+.title-separator {
+  $direction: 90deg;
+
+  &.vertical {
+    flex-direction: column;
+    $direction: 45deg;
+  }
+
+  &-green {
+    @include mixins.title-separator(#42C6A5, $direction);
+  }
+
+  &-blue {
+    @include mixins.title-separator(#3A9CFC, $direction);
+  }
+
+  &-red {
+    @include mixins.title-separator(#FE6A77, $direction);
+  }
+
+  &-yellow {
+    @include mixins.title-separator(#FFD669, $direction);
+  }
+
+}
+
+

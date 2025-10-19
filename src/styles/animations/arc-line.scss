@@ -1,0 +1,15 @@
+
+@keyframes arc-glow {
+  0% {
+    filter: drop-shadow(0 0 5px #6a93fe);
+    background: linear-gradient(90deg, #6a93fe 0%, #6a93fe 100%);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #6a93fe);
+    background: linear-gradient(90deg, #6a93fe, #ffffff);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #6a93fe);
+    background: linear-gradient(90deg, #6a93fe 0%, #6a93fe 100%);
+  }
+}
