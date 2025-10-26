@@ -24,7 +24,7 @@ dialog::backdrop {
   &__content {
     position: relative;
     @include mixins.glow(#03FCFC, bottom, 400px);
-
+    overflow: initial;
   }
 
   &-wrapper {

@@ -1,7 +1,7 @@
 import './style.css'
 
 const dialog = document.getElementById('dialogDemo');
-const dialog2 = document.getElementById('dialogThanks');
+// const dialog2 = document.getElementById('dialogThanks');
 document.querySelectorAll('[data-demo]').forEach((item) => {
     item.addEventListener('click', (ev) => {
         ev.preventDefault();
@@ -12,18 +12,9 @@ document.querySelectorAll('[data-demo]').forEach((item) => {
         }
     })
 });
-document.querySelectorAll('[data-close]').forEach((item) => {
+document.querySelectorAll('.close').forEach((item) => {
     item.addEventListener('click', (ev) => {
         ev.preventDefault();
         dialog.close();
     })
 });
-
-
-// const burger = document.querySelector('.footer__burger');
-// const nav = document.querySelector('.footer__nav');
-//
-// burger.addEventListener('click', () => {
-//     burger.classList.toggle('active');
-//     nav.classList.toggle('active');
-// });

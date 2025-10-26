@@ -79,6 +79,7 @@ body {
   margin-bottom: 30px;
   @include mixins.for-phone-only {
     font-size: 40px;
+    text-align: center;
   }
 }
 
@@ -89,6 +90,7 @@ body {
   letter-spacing: -1px;
   line-height: 1.2;
   @include mixins.for-phone-only {
+    text-align: center;
     font-size: 32px;
     line-height: 36px;
   }
@@ -100,6 +102,10 @@ body {
   margin-bottom: 10px;
   letter-spacing: 0;
   line-height: 30px;
+  @include mixins.for-phone-only {
+    font-size: 18px;
+    line-height: 1;
+  }
 }
 
 .primary-text {
@@ -227,14 +233,14 @@ body {
   right: -10%;
   transform: translateY(-50%);
   font-weight: 700;
-  font-size: max(12vw, 56px);
+  font-size: 186px;
+  line-height: 0.8;
   white-space: nowrap;
   color: transparent;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
   text-stroke: 2px rgba(255, 255, 255, 0.05);
   z-index: 1;
   pointer-events: none;
-  line-height: 0.8;
 }
 
 .with-separator {
@@ -252,6 +258,9 @@ body {
 
   &--green {
     @include mixins.neon-separator(variables.$successColor);
+  }
+  &--red {
+    @include mixins.neon-separator(variables.$red);
   }
 }
 

@@ -5,7 +5,6 @@
   position: relative;
   padding-top: 160px;
   padding-bottom: 50px;
-  //@include mixins.radial-glow-right-corner-with-text(#6A93FE);
   @include mixins.glow(#6A93FE)
 }
 .investors {
@@ -14,7 +13,15 @@
   margin-bottom: 50px;
 
   &__logo {
-    flex: 0 0 190px;
+    flex: 1 0 190px;
+  }
+  @include mixins.for-phone-only {
+    flex-direction: column;
+    align-items: center;
+    &__logo {
+      flex: 1;
+      margin-bottom: 50px;
+    }
   }
 }
 

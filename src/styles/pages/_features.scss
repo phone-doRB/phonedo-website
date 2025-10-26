@@ -3,12 +3,31 @@
 .features-top {
   margin-top: 35px;
   padding-top: 160px;
-  padding-bottom: 50px;
-  @include mixins.radial-glow-right-corner-with-text(#08947C);
+  @include mixins.glow(#08947C);
+  padding-bottom: 85px;
+
+  .h3 {
+    white-space: nowrap;
+  }
+  @include mixins.for-phone-only {
+    margin-bottom: 45px;
+    padding-bottom: 45px;
+  }
 }
 
 .features-card {
   display: flex;
+  @include mixins.for-phone-only {
+    flex-direction: column;
+    .title-separator.vertical {
+      flex-direction: row;
+      width: 65%;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
 
   &__content {
     margin-left: -25px;
@@ -18,6 +37,15 @@
     padding-left: 15%;
     padding-right: 8%;
     padding-block: 50px;
+    @include mixins.for-phone-only {
+      margin-left: 0px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 30px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
   }
 
   &__title {
@@ -30,17 +58,11 @@
     &__content {
       margin-left: -45px;
     }
+
   }
 }
 
-.features-card:first-child .features-card__content {
-  margin-left: -45px;
-}
 
-.bottom-content{
-  background: url("../../../images/sphere.png");
-
-}
 .feature-list {
   margin-top: 45px;
   padding-left: 35px;
@@ -49,6 +71,11 @@
     margin-bottom: 35px;
     line-height: 30px;
     font-size: 18px;
+  }
 
+  @include mixins.for-phone-only {
+    li {
+      font-size: 16px;
+    }
   }
 }

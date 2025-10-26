@@ -7,12 +7,15 @@ $btn-colors: (
         gray: #6c757d
 );
 
+a.btn {
+  cursor: pointer;
+}
 .btn {
   display: inline-flex;
   padding: 10px 20px;
   border-radius: 8px;
   font-weight: 500;
-  cursor: pointer;
+  //cursor: pointer;
   transition: 0.3s;
   justify-content: center;
   align-items: center;
@@ -21,11 +24,13 @@ $btn-colors: (
   i {
     line-height: 0;
   }
+
   &-group {
     display: flex;
     align-items: center;
     grid-column-gap: 10px;
   }
+
   &--outline {
     border: 1px solid variables.$light;
     color: variables.$light;
@@ -37,8 +42,18 @@ $btn-colors: (
   }
 
   &--light {
-    color: #1A1E37;
+    color: variables.$colorMain;
     background: variables.$light;
+  }
+
+  &--soft {
+    color: variables.$colorMain;
+    background: #FFFAED;
+  }
+
+  &--success {
+    color: variables.$colorMain;
+    background: variables.$successColor;
   }
 
   &--dark {

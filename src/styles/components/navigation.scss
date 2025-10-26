@@ -1,0 +1,214 @@
+@use "../variables";
+@use "../mixins";
+
+.footer, .header {
+  background: #010521;
+  color: #fff;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 30px 30px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+      height: 40px;
+    }
+
+    img:nth-child(2) {
+      max-height: 25px;
+      margin-left: 12px;
+    }
+
+    @include mixins.for-tablet {
+      img:nth-child(2) {
+        display: none;;
+      }
+
+    }
+  }
+
+  .menu {
+    &__nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin-left: 4rem;
+    }
+
+    &__list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #00bfff;
+        }
+      }
+    }
+
+    @include mixins.for-tablet {
+      &__list {
+        flex-direction: column;
+        gap: 20px;
+
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+
+  @include mixins.for-tablet {
+    &__socials {
+      display: none;
+    }
+  }
+
+}
+
+.header__right {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  grid-column-gap: 20px;
+
+  .login-button {
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .login-button:hover {
+    color: variables.$primaryColor
+  }
+}
+
+.footer {
+  &__socials {
+    display: flex;
+    grid-column-gap: 40px;
+    margin-left: auto;
+
+    .social-link {
+      font-size: 24px;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.burger {
+  display: none;
+  margin-left: auto;
+  @include mixins.for-tablet {
+    display: block;
+  }
+
+}
+
+@media (max-width: 740px) {
+  .burger {
+    display: block;
+  }
+  .menu__nav {
+    text-align: left;
+    flex-direction: column;
+    z-index: 10;
+    margin-left: 0 !important;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    padding: 20px 40px;
+    background-color: variables.$backgroundDark;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition: 0.3s;
+  }
+  .header__right, .footer__socials {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 0;
+    grid-row-gap: 20px;
+    width: 100%;
+    align-items: stretch;
+    margin-top: 50px;
+  }
+}
+
+.menu__btn {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+
+  & > span {
+    &,
+    &::before,
+    &::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #FFFFFF;
+      transition: 0.3s;
+    }
+  }
+
+  & > span::before {
+    content: '';
+    top: -8px;
+  }
+
+  & > span::after {
+    content: '';
+    top: 8px;
+  }
+}
+
+#menu__toggle, #menu__toggle2 {
+  opacity: 0;
+
+  &:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+  }
+
+  &:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  &:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+}
+
+.burger:has(input[type="checkbox"]:checked) ~ .menu__nav {
+  visibility: visible;
+  left: 0;
+}

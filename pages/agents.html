@@ -14,14 +14,17 @@
 
 <dialog id="dialogDemo">
     <div class="demo-wrapper">
+        <div class="glow-title">Book your <br/> Demo</div>
+        <div id="closeDialog" class="close"><i class="fi fi-ts-circle-xmark"></i></div>
         <div class="demo__content">
             <h2 class="h2 page-title success-text">Book your Demo</h2>
             <p class="content-p">Harness the power of Phone.Do platform, save costs and improve your organization
                 CX/CSAT</p>
         </div>
         <div class="demo__content">
-            <div>Complete the below form below and we will be in touch shortly to schedule the demo.</div>
             <form method="dialog" class="demo__form">
+                <p class="content-p">Complete the below form below and we will be in touch shortly to schedule the
+                    demo.</p>
                 <div class="demo__group">
                     <input class="demo__input" type="text" placeholder="First name*" aria-label="name"/>
                     <input class="demo__input" type="text" placeholder="Last name*" aria-label="last name"/>
@@ -40,7 +43,16 @@
     <div class="header__container">
         <div class="header__logo">
             <img src="../images/logo.png" alt="Logo"/>
+            <img src="../images/logo-name.png" alt="Phonedo"/>
         </div>
+
+        <div class="burger">
+            <input id="menu__toggle" type="checkbox"/>
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+        </div>
+
         <nav class="menu__nav">
             <ul class="menu__list">
                 <li><a href="#">Features & Benefits</a></li>
@@ -50,17 +62,12 @@
                 <li><a href="#">Partner</a></li>
                 <li><a href="#">About Us</a></li>
             </ul>
+            <div class="header__right">
+                <button class="login-button">Login</button>
+                <a class="btn btn--dark" href="#"><i class="fi fi-rr-briefcase"></i> Business</a>
+                <a class="btn btn--dark" href="#"><i class="fi fi-sr-user"></i> Agent</a>
+            </div>
         </nav>
-
-        <div class="header__right">
-            <button class="login-button">Login</button>
-            <a class="btn btn--dark" href="#"><i class="fi fi-rr-briefcase"></i> Business</a>
-            <a class="btn btn--dark" href="#"><i class="fi fi-sr-user"></i> Agent</a>
-        </div>
-
-        <button class="menu__burger" aria-label="Open menu">
-            <span></span><span></span><span></span>
-        </button>
     </div>
     <div class="container">
         <div class="with-separator with-separator--green"></div>
@@ -68,7 +75,7 @@
 </header>
 
 <div class="agent-top">
-    <div class="glow-title">Features <br/> &Benefits</div>
+    <div class="glow-title">Agents</div>
     <section class="container">
         <h2 class="h1 primary-text page-title">Agents</h2>
         <p class="content-p">Phone.Do customer engagement platform allow professional gig freelancers from all over the
@@ -83,15 +90,15 @@
     </section>
 </div>
 
-<div class="background-sphere">
-    <div class="container">
-        <img src="/images/agents/group-avatar.png" alt="avatars">
-    </div>
+<div class="background-sphere container agent-peoples-bg">
+    <img src="/images/agents/group-avatar.png" alt="avatars">
 </div>
 
 
 <div class="container">
-    <h2 class="h2 title-separator">Statistics</h2>
+    <div class="title-separator-blue">
+        <h2 class="h2 title-separator">Statistics</h2>
+    </div>
     <div class="statistics">
         <div class="statistics__item">
             <img class="statistics__icon" src="../images/agents/man-icon.svg" alt="person">
@@ -117,6 +124,7 @@
 
 
 <div class="container">
+
     <div class="agent-present">
         <div class="title-separator-green">
             <div class="circle-radar">
@@ -124,12 +132,21 @@
             </div>
         </div>
         <div class="agent-present__content">
-            <div class="agent-present__card">
-                <figure class="agent-present__container">
-                    <div class="agent-present__rectangle"></div>
-                    <img class="agent-present__phone" src="../images/agents/phone-one.png" alt="phone-background">
+            <div class="agent-present__phone-container">
+                <figure class="agent-present__phone">
+                    <div class="phone-float btn btn--success">
+                        <span>English</span>
+                        <div class="phone-float__round"></div>
+                    </div>
+                    <div class="phone-float btn btn--light">
+                        <span>London</span>
+                        <div class="phone-float__round"></div>
+                    </div>
+                    <div class="rectangle"></div>
+                    <img src="../images/agents/phone-one.png" alt="phone-background">
                 </figure>
             </div>
+
             <div class="agent-present__text">
                 <h2 class="h2">Leverage your background.</h2>
                 <p class="content-p">
@@ -140,8 +157,10 @@
                     can help you enhance your skills and gain new experiences.
                 </p>
             </div>
+            <div class="agent-present__space"></div>
         </div>
     </div>
+
 
     <div class="agent-present">
         <div class="title-separator-blue">
@@ -150,20 +169,36 @@
             </div>
         </div>
         <div class="agent-present__content">
-            <div class="agent-present__card">
-                <figure class="agent-present__container">
-                    <img class="agent-present__phone" src="../images/agents/phone-schedule.png" alt="phone-schedule">
+            <div class="agent-present__phone-container">
+                <figure class="agent-present__phone">
+                    <div class="phone-float btn btn--success">
+                        <span>Monday</span>
+                        <div class="phone-float__round"></div>
+                    </div>
+                    <div class="phone-float btn btn--light">
+                        <span>Wednesday</span>
+                        <div class="phone-float__round"></div>
+                    </div>
+                    <div class="phone-float btn btn--soft">
+                        <span>Thursday</span>
+                        <div class="phone-float__round"></div>
+                    </div>
+                    <div class="rectangle"></div>
+                    <img src="../images/agents/phone-schedule.png" alt="phone-background">
                 </figure>
             </div>
+
             <div class="agent-present__text">
-                <h2 class="h2">Set your own schedule.</h2>
+                <h2 class="h2">Set your own schedule.
+                </h2>
                 <p class="content-p">
                     As a member of our global network of freelance service pros,
-                    you are in charge of your schedule. Be your own boss.<br/>
+                    you are in charge of your schedule. Be your own boss.
                     Fit
                     work around your life and take control of your career.
                 </p>
             </div>
+            <div class="agent-present__space"></div>
         </div>
     </div>
 
@@ -182,8 +217,21 @@
                             <span class="dollar">$</span>
                         </div>
                     </div>
-                    <div class="stat">
-                        <span>My balance</span>
+                    <div class="balance-stat">
+                        <span class="balance-stat__title">My balance</span>
+                        <div class="balance-stat__coin">
+                            <img src="../images/agents/coin_balance.png" alt="balance">
+                        </div>
+                    </div>
+                    <div class="balance-stat">
+                        <div class="amount">$142.21</div>
+                        <div class="amount-curr">
+                            <span>Dollars</span>
+                            <i class="fi fi-rr-angle-small-down"></i>
+                        </div>
+                    </div>
+                    <div class="balance-round">
+                        <i class="fi fi-rr-angle-small-down"></i>
                     </div>
                 </div>
                 <div class="agent-present__stat">
@@ -203,10 +251,6 @@
                         <span>26</span>
                     </div>
                 </div>
-                <div class="agent-present__graph">
-                    <div class="btn btn--light">$ 254.21</div>
-                    <img src="../images/agents/graph-income.png" alt="graph">
-                </div>
             </div>
             <div class="agent-present__text">
                 <h2 class="h2">Earn income on your terms. </h2>
@@ -214,6 +258,13 @@
                     The more customers you help, the more money you earn. Gain experience and<br/> multiply your
                     earnings as you become a more sought out service pro.
                 </p>
+            </div>
+            <div class="agent-present__space"></div>
+        </div>
+        <div class="agent-present__graph">
+            <div class="graph-inner">
+                <div class="btn btn--light">$ 254.21</div>
+                <img src="../images/agents/graph-income.png" alt="graph">
             </div>
         </div>
     </div>
@@ -238,8 +289,14 @@
         <div class="footer__container">
             <div class="footer__logo">
                 <img src="../images/logo.png" alt="Logo"/>
+                <img src="../images/logo-name.png" alt="Phonedo"/>
             </div>
-
+            <div class="burger">
+                <input id="menu__toggle2" type="checkbox"/>
+                <label class="menu__btn" for="menu__toggle2">
+                    <span></span>
+                </label>
+            </div>
             <nav class="menu__nav">
                 <ul class="menu__list">
                     <li><a href="#">Features & Benefits</a></li>
@@ -249,18 +306,14 @@
                     <li><a href="#">Partner</a></li>
                     <li><a href="#">About Us</a></li>
                 </ul>
+                <div class="footer__socials">
+                    <a class="social-link" href="#"><i class="fi fi-brands-facebook"></i></a>
+                    <a class="social-link" href="#"><i class="fi fi-brands-instagram"></i></a>
+                    <a class="social-link" href="#"><i class="fi fi-brands-linkedin"></i></a>
+                    <a class="social-link" href="#"><i class="fi fi-brands-twitter"></i></a>
+                </div>
             </nav>
 
-            <div class="footer__socials">
-                <a class="social-link" href="#"><i class="fi fi-brands-facebook"></i></a>
-                <a class="social-link" href="#"><i class="fi fi-brands-instagram"></i></a>
-                <a class="social-link" href="#"><i class="fi fi-brands-linkedin"></i></a>
-                <a class="social-link" href="#"><i class="fi fi-brands-twitter"></i></a>
-            </div>
-
-            <button class="menu__burger" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </div>
 </footer>
